@@ -43,20 +43,24 @@
     <h2 class="h5 text-center mb-5">Наши преподаватели</h2>
     <div class="row">
       <div class="col-12 col-lg-10 offset-lg-1 m-auto">
-        <div class="card mb-4">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-3"><img src="../static/pict 1.png" class="img-fluid" alt=""></div>
-              <div class="col-9">
-                <p class="float-right">Рейтинг: 4.8 Ставка: 1200 / час</p>
-                <h2 class="h4">Morris Simmmons</h2>
-                <p>Репетитор американского английского языка. Структурированная система обучения. Всем привет! Я предпочитаю называть себя «тренером» английского языка. Мои занятия похожи на тренировки</p>
-                <a href="profile.html" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информаци и расписание</a>
+<!--../static/pict 1.png-->
+        {% for profile in profiles %}
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3"><img src="{{ profile.picture }}" class="img-fluid" alt=""></div>
+                <div class="col-9">
+                  <p class="float-right">Рейтинг: {{ profile.rating }} Ставка: {{ profile.price }} / час</p>
+                  <h2 class="h4">{{ profile.name }}</h2>
+                  <p>{{ profile.about }}</p>
+                  <a href="{{ url_for('render_profiles', teacher_id=profile.id) }}" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информаци и расписание</a>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        {% endfor %}
+
         <div class="card mb-4">
           <div class="card-body">
             <div class="row">
