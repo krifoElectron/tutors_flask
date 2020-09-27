@@ -23,8 +23,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link{{ ' active' if request.url_rule | string() == url_for('render_main') else ''}}"
-                       href="{{ url_for('render_main') }}">
+                    <a class="nav-link{{ ' active' if request.url_rule | string() == url_for('render_all_tutors') else ''}}"
+                       href="{{ url_for('render_all_tutors') }}">
                         Все репетиторы
                     </a>
                 </li>

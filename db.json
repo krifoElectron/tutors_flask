@@ -1,9 +1,10 @@
 {
     "goals": {
-        "travel": "\u0414\u043b\u044f \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0439",
-        "study": "\u0414\u043b\u044f \u0443\u0447\u0435\u0431\u044b",
-        "work": "\u0414\u043b\u044f \u0440\u0430\u0431\u043e\u0442\u044b",
-        "relocate": "\u0414\u043b\u044f \u043f\u0435\u0440\u0435\u0435\u0437\u0434\u0430"
+        "travel": "\u26f1\u0414\u043b\u044f \u043f\u0443\u0442\u0435\u0448\u0435\u0441\u0442\u0432\u0438\u0439",
+        "study": "\ud83c\udfeb\u0414\u043b\u044f \u0443\u0447\u0435\u0431\u044b",
+        "work": "\ud83c\udfe2\u0414\u043b\u044f \u0440\u0430\u0431\u043e\u0442\u044b",
+        "relocate": "\ud83d\ude9c\u0414\u043b\u044f \u043f\u0435\u0440\u0435\u0435\u0437\u0434\u0430",
+        "programming": "\ud83d\udda5\u0414\u043b\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f"
     },
     "teachers": [
         {
@@ -686,7 +687,8 @@
             "price": 1700,
             "goals": [
                 "relocate",
-                "work"
+                "work",
+                "programming"
             ],
             "free": {
                 "mon": {
@@ -769,7 +771,8 @@
             "rating": 4.1,
             "price": 1200,
             "goals": [
-                "work"
+                "work",
+                "programming"
             ],
             "free": {
                 "mon": {
@@ -854,7 +857,8 @@
             "goals": [
                 "travel",
                 "study",
-                "work"
+                "work",
+                "programming"
             ],
             "free": {
                 "mon": {
@@ -938,7 +942,8 @@
             "price": 900,
             "goals": [
                 "travel",
-                "work"
+                "work",
+                "programming"
             ],
             "free": {
                 "mon": {
@@ -1017,25 +1022,19 @@
     "bookings": [
         {
             "type": "trial_lesson",
-            "teacher_id": "0",
-            "day_of_week": "sun",
+            "teacher_id": "1",
+            "day_of_week": "tue",
             "time": "16",
-            "name": "sdfghj",
-            "phone": "89yufghv"
+            "name": "ffa",
+            "phone": "234"
         }
     ],
     "requests": [
         {
-            "goal": "learn",
-            "time": "7-10",
-            "name": "asdf",
-            "phone": "23"
-        },
-        {
-            "goal": "learn",
-            "time": "7-10",
-            "name": "asdf",
-            "phone": "23"
+            "goal": "programming",
+            "time": "5-7",
+            "name": "22",
+            "phone": "\u0430\u0444"
         }
     ]
 }

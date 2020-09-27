@@ -3,7 +3,7 @@ from flask import render_template
 from flask import request
 from functools import reduce
 import json
-
+from random import randint
 from forms import BookingForm
 from forms import RequestForm
 
@@ -27,17 +27,32 @@ app.secret_key = 'my-super-secret-phrase-I-dont-tell-this-to-nobody'
 
 @app.route('/')
 def render_main():
-    profiles = get_data_from_db()['teachers']
-    return render_template('index.html', profiles=profiles)
+    db = get_data_from_db()
+    profiles = db['teachers']
+    goals = db['goals']
+
+    all_numbers = [i for i in range(len(profiles))]
+    random_numbers = []
+    for i in range(6):
+        random_numbers.append(all_numbers.pop(randint(0, len(all_numbers) - 1)))
+
+    random_profiles = []
+    for random_number in random_numbers:
+        random_profiles.append(profiles[random_number])
+
+    return render_template('index.html', profiles=random_profiles, goals=goals)
 
 
-@app.route('/goals/<goal>')
-def render_goals():
-    return render_template('goal.html')
+@app.route('/all_tutors')
+def render_all_tutors():
+    db = get_data_from_db()
+    profiles = db['teachers']
+    goals = db['goals']
+    return render_template('all_tutors.html', profiles=profiles, goals=goals)
 
 
 @app.route('/profiles/<int:teacher_id>')
-def render_profiles(teacher_id):
+def render_profile(teacher_id):
     db = get_data_from_db()
     teachers = db['teachers']
     goals = db['goals']
@@ -118,6 +133,15 @@ def render_request_done():
                            request_time=request_time,
                            request_name=request_name,
                            request_phone=request_phone)
+
+
+@app.route('/goals/<string:goal>')
+def render_goal(goal):
+    db = get_data_from_db()
+    teachers = db['teachers']
+    filtered_teachers = list(filter(lambda x: goal in x['goals'], teachers))
+    goals = db['goals']
+    return render_template('goal.html', goal=goals[goal], teachers=filtered_teachers)
 
 
 if __name__ == '__main__':
