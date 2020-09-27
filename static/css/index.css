@@ -1,0 +1,5 @@
+.navbar-light .navbar-nav a.nav-link.active {
+    background-color: #007bff;
+    cursor: default;
+    color: white;
+}
