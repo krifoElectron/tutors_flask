@@ -81,9 +81,7 @@ class Request(db.Model):
 def render_main():
     data_base = get_data_from_db()
     tutors = db.session.query(Tutor).all()  # Использование БД
-    print(type(tutors))
     goals = data_base['goals']
-
     all_numbers = [i for i in range(len(tutors))]
     random_numbers = []
     for i in range(6):
@@ -192,9 +190,12 @@ def render_request_done():
 @app.route('/goals/<string:goal>')
 def render_goal(goal):
     data_base = get_data_from_db()
-    teachers = data_base['teachers']
-    filtered_teachers = list(filter(lambda x: goal in x['goals'], teachers))
     goals = data_base['goals']
+    teachers = data_base['teachers']
+    filtered_teachers_2 = list(filter(lambda x: goal in x['goals'], teachers))
+    filtered_teachers = tutors = db.session.query(Tutor).filter(goal in Tutor.goals)  # Использование БД
+    print(f'{filtered_teachers}\n{filtered_teachers_2}')
+    print(filtered_teachers == filtered_teachers_2)
     return render_template('goal.html', goal=goals[goal], teachers=filtered_teachers)
 
 
