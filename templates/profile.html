@@ -13,7 +13,7 @@
                         <h1 class="h2">{{ profile.name }}</h1>
                         <p>
                             {% for goal in profile_goals %}
-                            <span class="badge badge-secondary mr-2">{{ goal }}</span>
+                            <span class="badge badge-secondary mr-2">{{ goal.display_name }}</span>
                             {% endfor %}
                             Рейтинг: {{ profile.rating }} Ставка: {{ profile.price}} / час
                         </p>
@@ -25,7 +25,7 @@
 
                         <h4 class="mb-4 mt-5">Записаться на пробный урок</h4>
 
-                        {% for day, free_dict in profile.free.items() %}
+                        {% for day, free_dict in profile_free.items() %}
                             <h6 class="mt-4">{{ map_to_day_of_week[day] }}</h6>
                             {% if not free_dict %}
                                 <div class="ml-5">

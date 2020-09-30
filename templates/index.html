@@ -7,14 +7,11 @@
             онлайн</strong></h1>
         <div class="text-center mb-5">
             <div class="btn-group mx-auto mb-0" role="group" aria-label="Basic example">
-                {% for goal, goal_name in goals.items() %}
-                    <a href="{{ url_for('render_goal', goal=goal) }}" class="btn btn-outline-secondary">
-                        {{ goal_name }}
+                {% for goal in goals %}
+                    <a href="{{ url_for('render_goal', goal=goal.name) }}" class="btn btn-outline-secondary">
+                        {{ goal.display_name }}
                     </a>
                 {% endfor %}
-<!--                <a href="goal.html" class="btn btn-outline-secondary">🏫 Для школы</a>-->
-<!--                <a href="goal.html" class="btn btn-outline-secondary">🏢 Для работы</a>-->
-<!--                <a href="goal.html" class="btn btn-outline-secondary">🚜 Для переезда</a>-->
             </div>
         </div>
         <h2 class="h5 text-center mb-5">Наши преподаватели</h2>
