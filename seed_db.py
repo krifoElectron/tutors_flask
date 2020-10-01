@@ -1,5 +1,6 @@
 import data
 import json
+
 from app import db, Tutor, Goal
 
 
